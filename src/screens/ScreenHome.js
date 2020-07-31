@@ -5,14 +5,27 @@ import { HOME, PLAYERS, SCORE } from "../../consts/navigation";
 export const ScreenHome = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [players, setPlayers] = useState([{ name: "player 1", score: 0 }]);
-  const playersState = {
-    players,
-    setPlayers,
-  };
-  console.log(players);
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>{`${HOME} Screen`}</Text>
+
+        <Text>{`Players : ${players.length}`}</Text>
+
+        <Button
+          title="Add Players"
+          onPress={() => {
+            setModalVisible(true);
+          }}
+        />
+
+        <Button
+          title={SCORE}
+          onPress={() => navigation.navigate(SCORE, players)}
+        />
+      </View>
+
       <Modal
         animationType="slide"
         transparent={true}
@@ -28,21 +41,6 @@ export const ScreenHome = ({ navigation }) => {
           }}
         />
       </Modal>
-
-      <Text>{`${HOME} Screen`}</Text>
-      <Text>{`Players : ${players.length}`}</Text>
-
-      <Button
-        title={PLAYERS}
-        onPress={() => {
-          setModalVisible(true);
-        }}
-      />
-
-      <Button
-        title={SCORE}
-        onPress={() => navigation.navigate(SCORE, players)}
-      />
-    </View>
+    </>
   );
 };
