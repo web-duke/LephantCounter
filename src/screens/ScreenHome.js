@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Button, Modal, Text, View } from "react-native";
-import { HOME, PLAYERS, SCORE } from "../../consts/navigation";
+import { Button, Modal, StyleSheet, Text, View } from "react-native";
+import { HOME, SCORE } from "../../consts/navigation";
 
 export const ScreenHome = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -34,13 +34,22 @@ export const ScreenHome = ({ navigation }) => {
           Alert.alert("Modal has been closed.");
         }}
       >
-        <Button
-          title="Close"
-          onPress={() => {
-            setModalVisible(!modalVisible);
-          }}
-        />
+        <View style={styles.modal}>
+          <Button
+            title="Close"
+            onPress={() => {
+              setModalVisible(!modalVisible);
+            }}
+          />
+        </View>
       </Modal>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  modal: {
+    flex: 1,
+    justifyContent: "flex-end",
+  },
+});
