@@ -2,10 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { StyleSheet } from "react-native";
-import { HOME, PLAYERS, SCORE } from "./consts/navigation";
-import { Home } from "./src/screens/Home";
-import { Players } from "./src/screens/Players";
-import { Score } from "./src/screens/Score";
+import { HOME, SCORE } from "./consts/navigation";
+import { ScreenHome } from "./src/screens/ScreenHome";
+import { ScreenScore } from "./src/screens/ScreenScore";
 
 const Stack = createStackNavigator();
 
@@ -14,9 +13,8 @@ export default function App() {
     <>
       <NavigationContainer>
         <Stack.Navigator initialRouteName={HOME}>
-          <Stack.Screen name={HOME} component={Home} />
-          <Stack.Screen name={PLAYERS} component={Players} />
-          <Stack.Screen name={SCORE} component={Score} />
+          <Stack.Screen name={HOME} component={ScreenHome} />
+          <Stack.Screen name={SCORE} component={ScreenScore} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
