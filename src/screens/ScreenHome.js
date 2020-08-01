@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { Button, Modal, StyleSheet, Text, View } from "react-native";
 import { HOME, SCORE } from "../../consts/navigation";
+import TagInput from "react-native-tags-input";
 
 export const ScreenHome = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [players, setPlayers] = useState([{ name: "player 1", score: 0 }]);
+  const [playersList, setPlayersList] = useState({
+    tag: "",
+    tagsArray: [],
+  });
 
   return (
     <>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>{`${HOME} Screen`}</Text>
 
-        <Text>{`Players : ${players.length}`}</Text>
+        <Text>{`Players : ${playersList.tagsArray.length}`}</Text>
 
         <Button
           title="Add Players"
@@ -22,7 +26,7 @@ export const ScreenHome = ({ navigation }) => {
 
         <Button
           title={SCORE}
-          onPress={() => navigation.navigate(SCORE, players)}
+          onPress={() => navigation.navigate(SCORE, playersList)}
         />
       </View>
 
@@ -35,6 +39,15 @@ export const ScreenHome = ({ navigation }) => {
         }}
       >
         <View style={styles.modal}>
+          <TagInput
+            updateState={setPlayersList}
+            tags={playersList}
+            placeholder="Name"
+            label="Press space to add player"
+            autoCorrect={false}
+            keysForTag={" "}
+          />
+
           <Button
             title="Close"
             onPress={() => {
