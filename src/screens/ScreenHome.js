@@ -54,9 +54,7 @@ export const ScreenHome = ({ navigation }) => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-        }}
+        onRequestClose={() => setModalVisible(!modalVisible)}
       >
         <View style={styles.modal}>
           <TagInput
@@ -71,9 +69,7 @@ export const ScreenHome = ({ navigation }) => {
 
           <Button
             title="Close"
-            onPress={() => {
-              setModalVisible(!modalVisible);
-            }}
+            onPress={() => setModalVisible(!modalVisible)}
           />
         </View>
       </Modal>
