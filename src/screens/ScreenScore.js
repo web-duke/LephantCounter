@@ -9,7 +9,7 @@ const renderItem = ({ item, index, drag, isActive }) => {
     <TouchableOpacity
       style={{
         height: 100,
-        backgroundColor: isActive ? "blue" : item.backgroundColor,
+        backgroundColor: isActive ? "blue" : "gray",
         alignItems: "center",
         justifyContent: "center",
       }}
@@ -31,8 +31,6 @@ const renderItem = ({ item, index, drag, isActive }) => {
 
 export const ScreenScore = ({ route }) => {
   const [playersData, setPlayersData] = useState(route.params.playersData);
-
-  console.log(route.params.playersList);
 
   return (
     <View style={{ flex: 1 }}>

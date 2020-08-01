@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { Button, Modal, StyleSheet, Text, View } from "react-native";
-import { HOME, SCORE } from "../../consts/navigation";
 import TagInput from "react-native-tags-input";
+import { HOME, SCORE } from "../../consts/navigation";
 
 const setPlayersData = (playersList) => {
   const playersData = playersList.tagsArray.map((player) => ({
     key: player,
     score: 0,
   }));
-  console.log(playersData);
+
   return playersData;
+};
+
+const clearPlayers = (setPlayersList) => {
+  setPlayersList({ tag: "", tagsArray: [] });
 };
 
 export const ScreenHome = ({ navigation }) => {
@@ -18,18 +22,10 @@ export const ScreenHome = ({ navigation }) => {
     tag: "",
     tagsArray: [],
   });
-  let playersData = [];
-
-  const clearPlayers = () => {
-    setPlayersList({ tag: "", tagsArray: [] });
-    playersData = [];
-  };
 
   return (
     <>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>{`${HOME} Screen`}</Text>
-
         <Text>{`Players : ${playersList.tagsArray.length}`}</Text>
 
         <Button
@@ -39,7 +35,10 @@ export const ScreenHome = ({ navigation }) => {
           }}
         />
 
-        <Button title="Clear players" onPress={clearPlayers} />
+        <Button
+          title="Clear players"
+          onPress={() => clearPlayers(setPlayersList)}
+        />
 
         <Button
           title={SCORE}
