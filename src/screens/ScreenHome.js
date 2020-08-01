@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, StyleSheet, Text, View } from "react-native";
 import TagInput from "react-native-tags-input";
-import { HOME, SCORE } from "../../consts/navigation";
+import { SCORE } from "../../consts/navigation";
 
 const setPlayersData = (playersList) => {
   const playersData = playersList.tagsArray.map((player) => ({
@@ -29,15 +29,10 @@ export const ScreenHome = ({ navigation }) => {
         <Text>{`Players : ${playersList.tagsArray.length}`}</Text>
 
         <Button
-          title="Add Players"
+          title="Manage Players"
           onPress={() => {
             setModalVisible(true);
           }}
-        />
-
-        <Button
-          title="Clear players"
-          onPress={() => clearPlayers(setPlayersList)}
         />
 
         <Button
@@ -47,6 +42,11 @@ export const ScreenHome = ({ navigation }) => {
               playersData: setPlayersData(playersList),
             })
           }
+        />
+
+        <Button
+          title="Clear players"
+          onPress={() => clearPlayers(setPlayersList)}
         />
       </View>
 
