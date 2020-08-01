@@ -10,6 +10,8 @@ export const ScreenHome = ({ navigation }) => {
     tagsArray: [],
   });
 
+  const clearPlayers = () => setPlayersList({ tag: "", tagsArray: [] });
+
   return (
     <>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -23,6 +25,8 @@ export const ScreenHome = ({ navigation }) => {
             setModalVisible(true);
           }}
         />
+
+        <Button title="Clear players" onPress={clearPlayers} />
 
         <Button
           title={SCORE}
@@ -46,6 +50,7 @@ export const ScreenHome = ({ navigation }) => {
             label="Press space to add player"
             autoCorrect={false}
             keysForTag={" "}
+            autoFocus
           />
 
           <Button
@@ -64,5 +69,6 @@ const styles = StyleSheet.create({
   modal: {
     flex: 1,
     justifyContent: "flex-end",
+    backgroundColor: "rgba(0,0,0,0.9)",
   },
 });
