@@ -3,14 +3,27 @@ import { Button, Modal, StyleSheet, Text, View } from "react-native";
 import { HOME, SCORE } from "../../consts/navigation";
 import TagInput from "react-native-tags-input";
 
+const setPlayersData = (playersList) => {
+  const playersData = playersList.tagsArray.map((player) => ({
+    key: player,
+    score: 0,
+  }));
+  console.log(playersData);
+  return playersData;
+};
+
 export const ScreenHome = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [playersList, setPlayersList] = useState({
     tag: "",
     tagsArray: [],
   });
+  let playersData = [];
 
-  const clearPlayers = () => setPlayersList({ tag: "", tagsArray: [] });
+  const clearPlayers = () => {
+    setPlayersList({ tag: "", tagsArray: [] });
+    playersData = [];
+  };
 
   return (
     <>
@@ -31,7 +44,9 @@ export const ScreenHome = ({ navigation }) => {
         <Button
           title={SCORE}
           onPress={() =>
-            navigation.navigate(SCORE, { playersList: playersList.tagsArray })
+            navigation.navigate(SCORE, {
+              playersData: setPlayersData(playersList),
+            })
           }
         />
       </View>
