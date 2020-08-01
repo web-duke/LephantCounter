@@ -30,7 +30,9 @@ export const ScreenHome = ({ navigation }) => {
 
         <Button
           title={SCORE}
-          onPress={() => navigation.navigate(SCORE, playersList)}
+          onPress={() =>
+            navigation.navigate(SCORE, { playersList: playersList.tagsArray })
+          }
         />
       </View>
 
