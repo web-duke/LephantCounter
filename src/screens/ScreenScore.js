@@ -22,8 +22,23 @@ const renderItem = ({ item, index, drag, isActive }, setCurrentPlayerData) => {
       onLongPress={drag}
       onPress={() => setCurrentPlayerData(item)}
     >
-      <Text style={styles.playerRowText}>{item.key}</Text>
-      <Text style={styles.playerRowText}>{item.score}</Text>
+      <Text
+        style={[
+          styles.playerRowText,
+          { color: isActive ? COLOR_BACK : COLOR_TEXT },
+        ]}
+      >
+        {item.key}
+      </Text>
+
+      <Text
+        style={[
+          styles.playerRowText,
+          { color: isActive ? COLOR_BACK : COLOR_TEXT },
+        ]}
+      >
+        {item.score}
+      </Text>
     </TouchableOpacity>
   );
 };
