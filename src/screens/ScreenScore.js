@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Button, StyleSheet, Switch, Text, View } from "react-native";
+import { StyleSheet, Switch, Text, View } from "react-native";
 import DraggableFlatList from "react-native-draggable-flatlist";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScoreButton } from "../components/ScoreButton";
 import {
-  COLOR_FRONT,
   COLOR_BACK,
-  COLOR_MIDDLE,
-  COLOR_HL,
+  COLOR_FRONT,
   COLOR_HL_LIGHT,
+  COLOR_MIDDLE,
   COLOR_TEXT,
 } from "../css/consts";
 
@@ -43,27 +43,6 @@ const renderItem = ({ item, index, drag, isActive }, setCurrentPlayerData) => {
   );
 };
 
-const updatePlayerData = (
-  value,
-  isAdding,
-  currentPlayerData,
-  playersData,
-  setPlayersData
-) => {
-  const playerIndex = playersData.findIndex(
-    (element) => element.key === currentPlayerData.key
-  );
-  const val = isAdding ? value : -value;
-
-  let newArray = [...playersData];
-  newArray[playerIndex] = {
-    ...newArray[playerIndex],
-    score: newArray[playerIndex].score + val,
-  };
-
-  setPlayersData(newArray);
-};
-
 export const ScreenScore = ({ route }) => {
   const [playersData, setPlayersData] = useState(route.params.playersData);
   const [currentPlayerData, setCurrentPlayerData] = useState(undefined);
@@ -85,194 +64,128 @@ export const ScreenScore = ({ route }) => {
       </View>
 
       <View style={styles.buttonsContainer}>
-        <Switch
-          onValueChange={toggleIsAdding}
-          value={isAdding}
-          disabled={isDisabled}
-        />
-        <Text>{isAdding ? "+" : "-"}</Text>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => setIsAdding(!isAdding)}
+        >
+          <Text style={styles.addButtonText}>{isAdding ? "+" : "-"}</Text>
+        </TouchableOpacity>
 
-        <Button
-          style={styles.button}
-          title="1"
-          onPress={() =>
-            updatePlayerData(
-              1,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+        <ScoreButton
+          value={1}
+          label="1"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="2"
-          onPress={() =>
-            updatePlayerData(
-              2,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={2}
+          label="2"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="3"
-          onPress={() =>
-            updatePlayerData(
-              3,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={3}
+          label="3"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="4"
-          onPress={() =>
-            updatePlayerData(
-              4,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={4}
+          label="4"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="5"
-          onPress={() =>
-            updatePlayerData(
-              5,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={5}
+          label="5"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="6"
-          onPress={() =>
-            updatePlayerData(
-              6,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={6}
+          label="6"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="7"
-          onPress={() =>
-            updatePlayerData(
-              7,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={7}
+          label="7"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="8"
-          onPress={() =>
-            updatePlayerData(
-              8,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={8}
+          label="8"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="9"
-          onPress={() =>
-            updatePlayerData(
-              9,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={9}
+          label="9"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="10"
-          onPress={() =>
-            updatePlayerData(
-              10,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={10}
+          label="10"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="valet"
-          onPress={() =>
-            updatePlayerData(
-              11,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={11}
+          label="V"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="dame"
-          onPress={() =>
-            updatePlayerData(
-              12,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={12}
+          label="Q"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
-        <Button
-          style={styles.button}
-          title="roi"
-          onPress={() =>
-            updatePlayerData(
-              13,
-              isAdding,
-              currentPlayerData,
-              playersData,
-              setPlayersData
-            )
-          }
-          disabled={isDisabled}
+
+        <ScoreButton
+          value={13}
+          label="K"
+          isAdding={isAdding}
+          currentPlayerData={currentPlayerData}
+          playersData={playersData}
+          setPlayersData={setPlayersData}
         />
       </View>
     </>
@@ -280,7 +193,7 @@ export const ScreenScore = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
-  screen: { flex: 2, backgroundColor: COLOR_FRONT },
+  screen: { flex: 3, backgroundColor: COLOR_FRONT },
   playerRow: {
     flex: 1,
     flexDirection: "row",
@@ -301,9 +214,22 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     flexDirection: "row",
     backgroundColor: COLOR_BACK,
+    alignContent: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 10,
   },
-  button: {
-    width: 20,
-    height: 20, // ne marche pas, peut etre car bouton natif
+  addButton: {
+    width: 40,
+    height: 40,
+    backgroundColor: COLOR_FRONT,
+    margin: 6,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 2,
+  },
+  addButtonText: {
+    fontWeight: "bold",
+    fontSize: 28,
+    color: COLOR_BACK,
   },
 });
