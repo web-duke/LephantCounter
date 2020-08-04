@@ -3,6 +3,8 @@ import { Button, Modal, StyleSheet, Text, View } from "react-native";
 import TagInput from "react-native-tags-input";
 import { SCORE } from "../../consts/navigation";
 import { COLOR_FRONT, COLOR_BACK } from "../css/consts";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { HomeButton } from "../components/HomeButton";
 
 const setPlayersData = (playersList) => {
   const playersData = playersList.tagsArray.map((player) => ({
@@ -27,29 +29,29 @@ export const ScreenHome = ({ navigation }) => {
   return (
     <>
       <View style={styles.screen}>
-        <Text
-          style={styles.title}
-        >{`Players : ${playersList.tagsArray.length}`}</Text>
+        <Text style={styles.title}>
+          {`Players : ${playersList.tagsArray.length}`}
+        </Text>
 
-        <Button
-          title="Manage Players"
+        <HomeButton
           onPress={() => {
             setModalVisible(true);
           }}
+          label="Manage Players"
         />
 
-        <Button
-          title={SCORE}
+        <HomeButton
           onPress={() =>
             navigation.navigate(SCORE, {
               playersData: setPlayersData(playersList),
             })
           }
+          label={SCORE}
         />
 
-        <Button
-          title="Clear players"
+        <HomeButton
           onPress={() => clearPlayers(setPlayersList)}
+          label="Clear players"
         />
       </View>
 
@@ -68,11 +70,14 @@ export const ScreenHome = ({ navigation }) => {
             autoCorrect={false}
             keysForTag={" "}
             autoFocus
+            labelStyle={{ color: COLOR_FRONT }}
+            inputStyle={{ color: "#fff" }}
           />
 
-          <Button
-            title="Close"
+          <HomeButton
             onPress={() => setModalVisible(!modalVisible)}
+            label="Close"
+            style={{ marginVertical: 0 }}
           />
         </View>
       </Modal>
@@ -95,6 +100,6 @@ const styles = StyleSheet.create({
   modal: {
     flex: 1,
     justifyContent: "flex-end",
-    backgroundColor: "rgba(0,0,0,0.9)",
+    backgroundColor: "rgba(0,0,0,0.7)",
   },
 });
