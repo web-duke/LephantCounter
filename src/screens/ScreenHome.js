@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Modal, StyleSheet, Text, View } from "react-native";
 import TagInput from "react-native-tags-input";
 import { SCORE } from "../../consts/navigation";
+import { COLOR_FRONT } from "../css/consts";
 
 const setPlayersData = (playersList) => {
   const playersData = playersList.tagsArray.map((player) => ({
@@ -25,7 +26,14 @@ export const ScreenHome = ({ navigation }) => {
 
   return (
     <>
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: COLOR_FRONT,
+        }}
+      >
         <Text>{`Players : ${playersList.tagsArray.length}`}</Text>
 
         <Button

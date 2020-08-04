@@ -2,29 +2,28 @@ import React, { useState } from "react";
 import { Button, StyleSheet, Switch, Text, View } from "react-native";
 import DraggableFlatList from "react-native-draggable-flatlist";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import {
+  COLOR_FRONT,
+  COLOR_BACK,
+  COLOR_MIDDLE,
+  COLOR_HL,
+  COLOR_HL_LIGHT,
+  COLOR_TEXT,
+} from "../css/consts";
 
 const renderItem = ({ item, index, drag, isActive }, setCurrentPlayerData) => {
   return (
     <TouchableOpacity
-      style={{
-        height: 50,
-        backgroundColor: isActive ? "blue" : "gray",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
+      style={[
+        styles.playerRow,
+        { backgroundColor: isActive ? COLOR_HL_LIGHT : COLOR_MIDDLE },
+      ]}
       delayLongPress={100}
       onLongPress={drag}
       onPress={() => setCurrentPlayerData(item)}
     >
-      <Text
-        style={{
-          fontWeight: "bold",
-          color: "white",
-          fontSize: 22,
-        }}
-      >
-        {item.key} : {item.score}
-      </Text>
+      <Text style={styles.playerRowText}>{item.key}</Text>
+      <Text style={styles.playerRowText}>{item.score}</Text>
     </TouchableOpacity>
   );
 };
@@ -60,7 +59,7 @@ export const ScreenScore = ({ route }) => {
 
   return (
     <>
-      <View style={{ flex: 2, backgroundColor: "lightgray" }}>
+      <View style={styles.screen}>
         <DraggableFlatList
           data={playersData}
           renderItem={(props) => renderItem(props, setCurrentPlayerData)}
@@ -266,10 +265,27 @@ export const ScreenScore = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
+  screen: { flex: 2, backgroundColor: COLOR_FRONT },
+  playerRow: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    height: 50,
+    borderBottomWidth: 2,
+    borderBottomColor: COLOR_FRONT,
+  },
+  playerRowText: {
+    color: COLOR_TEXT,
+    fontSize: 18,
+    textTransform: "capitalize",
+  },
   buttonsContainer: {
     flex: 1,
     flexWrap: "wrap",
     flexDirection: "row",
+    backgroundColor: COLOR_BACK,
   },
   button: {
     width: 20,
