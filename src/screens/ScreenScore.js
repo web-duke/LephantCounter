@@ -195,7 +195,6 @@ export const ScreenScore = ({ route }) => {
 const styles = StyleSheet.create({
   screen: { flex: 3, backgroundColor: COLOR_FRONT },
   playerRow: {
-    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -210,7 +209,7 @@ const styles = StyleSheet.create({
     textTransform: "capitalize",
   },
   buttonsContainer: {
-    flex: 1,
+    height: 140,
     flexWrap: "wrap",
     flexDirection: "row",
     backgroundColor: COLOR_BACK,

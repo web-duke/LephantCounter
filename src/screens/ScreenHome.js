@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Modal, StyleSheet, Text, View } from "react-native";
 import TagInput from "react-native-tags-input";
 import { SCORE } from "../../consts/navigation";
-import { COLOR_FRONT } from "../css/consts";
+import { COLOR_FRONT, COLOR_BACK } from "../css/consts";
 
 const setPlayersData = (playersList) => {
   const playersData = playersList.tagsArray.map((player) => ({
@@ -26,15 +26,10 @@ export const ScreenHome = ({ navigation }) => {
 
   return (
     <>
-      <View
-        style={{
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: COLOR_FRONT,
-        }}
-      >
-        <Text>{`Players : ${playersList.tagsArray.length}`}</Text>
+      <View style={styles.screen}>
+        <Text
+          style={styles.title}
+        >{`Players : ${playersList.tagsArray.length}`}</Text>
 
         <Button
           title="Manage Players"
@@ -86,6 +81,17 @@ export const ScreenHome = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    paddingHorizontal: 20,
+    backgroundColor: COLOR_FRONT,
+  },
+  title: {
+    color: COLOR_BACK,
+    fontSize: 28,
+    fontWeight: "bold",
+    marginVertical: 20,
+  },
   modal: {
     flex: 1,
     justifyContent: "flex-end",
