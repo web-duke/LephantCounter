@@ -3,7 +3,12 @@ import { Modal, StyleSheet, Text, View } from "react-native";
 import TagInput from "react-native-tags-input";
 import { SCORE } from "../../consts/navigation";
 import { HomeButton } from "../components/HomeButton";
-import { COLOR_BACK, COLOR_FRONT } from "../css/consts";
+import {
+  COLOR_BACK,
+  COLOR_FRONT,
+  COLOR_TEXT,
+  COLOR_MIDDLE,
+} from "../css/consts";
 
 const setPlayersData = (playersList) => {
   const playersData = playersList.tagsArray.map((player) => ({
@@ -68,7 +73,19 @@ export const ScreenHome = ({ navigation }) => {
             keysForTag={" "}
             autoFocus
             labelStyle={{ color: COLOR_FRONT }}
-            inputStyle={{ color: "#fff" }}
+            inputStyle={{ color: COLOR_TEXT }}
+            tagStyle={{
+              backgroundColor: COLOR_BACK,
+              borderRadius: 4,
+              borderColor: COLOR_BACK,
+              height: 40,
+              paddingHorizontal: 10,
+            }}
+            tagTextStyle={{
+              color: COLOR_TEXT,
+              textTransform: "capitalize",
+              fontSize: 18,
+            }}
           />
 
           <HomeButton
