@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Button, Modal, StyleSheet, Text, View } from "react-native";
+import { Modal, StyleSheet, Text, View } from "react-native";
 import TagInput from "react-native-tags-input";
 import { SCORE } from "../../consts/navigation";
-import { COLOR_FRONT, COLOR_BACK } from "../css/consts";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { HomeButton } from "../components/HomeButton";
+import { COLOR_BACK, COLOR_FRONT } from "../css/consts";
 
 const setPlayersData = (playersList) => {
   const playersData = playersList.tagsArray.map((player) => ({
@@ -34,9 +33,7 @@ export const ScreenHome = ({ navigation }) => {
         </Text>
 
         <HomeButton
-          onPress={() => {
-            setModalVisible(true);
-          }}
+          onPress={() => setModalVisible(true)}
           label="Manage Players"
         />
 
@@ -75,7 +72,7 @@ export const ScreenHome = ({ navigation }) => {
           />
 
           <HomeButton
-            onPress={() => setModalVisible(!modalVisible)}
+            onPress={() => setModalVisible(false)} //not working
             label="Close"
             style={{ marginVertical: 0 }}
           />

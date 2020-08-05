@@ -1,7 +1,6 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { COLOR_BACK, COLOR_FRONT, COLOR_TEXT } from "../css/consts";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { COLOR_BACK, COLOR_TEXT } from "../css/consts";
 
 export const HomeButton = ({ label, onPress }) => {
   return (
@@ -21,7 +20,6 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   buttonText: {
-    // fontWeight: "bold",
     fontSize: 18,
     color: COLOR_TEXT,
   },
