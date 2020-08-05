@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Modal, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { SCORE } from "../../consts/navigation";
 import { HomeButton } from "../components/HomeButton";
+import { ModalBase } from "../components/ModalBase";
 import { Tag } from "../components/Tag";
 import { COLOR_BACK, COLOR_FRONT } from "../css/consts";
 
@@ -52,22 +53,18 @@ export const ScreenHome = ({ navigation }) => {
         />
       </View>
 
-      <Modal
-        animationType="slide"
-        transparent={true}
+      <ModalBase
         visible={modalVisible}
         onRequestClose={() => setModalVisible(!modalVisible)}
       >
-        <View style={styles.modal}>
-          <Tag updateState={setPlayersList} tags={playersList} />
+        <Tag updateState={setPlayersList} tags={playersList} />
 
-          <HomeButton
-            onPress={() => setModalVisible(false)}
-            label="Close"
-            style={{ marginVertical: 0 }}
-          />
-        </View>
-      </Modal>
+        <HomeButton
+          onPress={() => setModalVisible(false)}
+          label="Close"
+          style={{ marginVertical: 0 }}
+        />
+      </ModalBase>
     </>
   );
 };
@@ -83,10 +80,5 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "bold",
     marginVertical: 20,
-  },
-  modal: {
-    flex: 1,
-    justifyContent: "flex-end",
-    backgroundColor: "rgba(0,0,0,0.7)",
   },
 });
