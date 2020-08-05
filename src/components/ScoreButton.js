@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { COLOR_FRONT, COLOR_BACK } from "../css/consts";
+import { COLOR_BACK, COLOR_FRONT } from "../css/consts";
 
 const updatePlayerData = (
   value,
@@ -31,6 +31,7 @@ export const ScoreButton = ({
   playersData,
   setPlayersData,
   label,
+  isDisabled,
 }) => {
   return (
     <TouchableOpacity
@@ -44,6 +45,7 @@ export const ScoreButton = ({
           setPlayersData
         )
       }
+      disabled={isDisabled}
     >
       <Text style={styles.buttonText}>{label}</Text>
     </TouchableOpacity>
