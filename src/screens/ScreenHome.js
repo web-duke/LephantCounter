@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import { Modal, StyleSheet, Text, View } from "react-native";
-import TagInput from "react-native-tags-input";
 import { SCORE } from "../../consts/navigation";
 import { HomeButton } from "../components/HomeButton";
-import {
-  COLOR_BACK,
-  COLOR_FRONT,
-  COLOR_TEXT,
-  COLOR_MIDDLE,
-} from "../css/consts";
+import { Tag } from "../components/Tag";
+import { COLOR_BACK, COLOR_FRONT } from "../css/consts";
 
 const setPlayersData = (playersList) => {
   const playersData = playersList.tagsArray.map((player) => ({
@@ -64,32 +59,10 @@ export const ScreenHome = ({ navigation }) => {
         onRequestClose={() => setModalVisible(!modalVisible)}
       >
         <View style={styles.modal}>
-          <TagInput
-            updateState={setPlayersList}
-            tags={playersList}
-            placeholder="Name"
-            label="Press space to add player"
-            autoCorrect={false}
-            keysForTag={" "}
-            autoFocus
-            labelStyle={{ color: COLOR_FRONT }}
-            inputStyle={{ color: COLOR_TEXT }}
-            tagStyle={{
-              backgroundColor: COLOR_BACK,
-              borderRadius: 4,
-              borderColor: COLOR_BACK,
-              height: 40,
-              paddingHorizontal: 10,
-            }}
-            tagTextStyle={{
-              color: COLOR_TEXT,
-              textTransform: "capitalize",
-              fontSize: 18,
-            }}
-          />
+          <Tag updateState={setPlayersList} tags={playersList} />
 
           <HomeButton
-            onPress={() => setModalVisible(false)} //not working
+            onPress={() => setModalVisible(false)}
             label="Close"
             style={{ marginVertical: 0 }}
           />

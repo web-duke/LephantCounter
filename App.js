@@ -2,9 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { HOME, SCORE } from "./consts/navigation";
+import { COLOR_BACK, COLOR_TEXT } from "./src/css/consts";
 import { ScreenHome } from "./src/screens/ScreenHome";
 import { ScreenScore } from "./src/screens/ScreenScore";
-import { COLOR_TEXT, COLOR_BACK } from "./src/css/consts";
 
 const Stack = createStackNavigator();
 

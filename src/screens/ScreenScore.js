@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Switch, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import DraggableFlatList from "react-native-draggable-flatlist";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { ScoreButton } from "../components/ScoreButton";
