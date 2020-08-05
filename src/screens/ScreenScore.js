@@ -64,129 +64,131 @@ export const ScreenScore = ({ route }) => {
       </View>
 
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity
-          style={styles.addButton}
-          onPress={() => setIsAdding(!isAdding)}
-        >
-          <Text style={styles.addButtonText}>{isAdding ? "+" : "-"}</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonsContainerWrapper}>
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => setIsAdding(!isAdding)}
+          >
+            <Text style={styles.addButtonText}>{isAdding ? "+" : "-"}</Text>
+          </TouchableOpacity>
 
-        <ScoreButton
-          value={1}
-          label="1"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={1}
+            label="1"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={2}
-          label="2"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={2}
+            label="2"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={3}
-          label="3"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={3}
+            label="3"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={4}
-          label="4"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={4}
+            label="4"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={5}
-          label="5"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={5}
+            label="5"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={6}
-          label="6"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={6}
+            label="6"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={7}
-          label="7"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={7}
+            label="7"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={8}
-          label="8"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={8}
+            label="8"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={9}
-          label="9"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={9}
+            label="9"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={10}
-          label="10"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={10}
+            label="10"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={11}
-          label="V"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={11}
+            label="V"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={12}
-          label="Q"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={12}
+            label="Q"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
 
-        <ScoreButton
-          value={13}
-          label="K"
-          isAdding={isAdding}
-          currentPlayerData={currentPlayerData}
-          playersData={playersData}
-          setPlayersData={setPlayersData}
-        />
+          <ScoreButton
+            value={13}
+            label="K"
+            isAdding={isAdding}
+            currentPlayerData={currentPlayerData}
+            playersData={playersData}
+            setPlayersData={setPlayersData}
+          />
+        </View>
       </View>
     </>
   );
@@ -210,16 +212,20 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     height: 140,
+    backgroundColor: COLOR_BACK,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonsContainerWrapper: {
+    maxWidth: 400,
     flexWrap: "wrap",
     flexDirection: "row",
-    backgroundColor: COLOR_BACK,
     alignContent: "center",
     justifyContent: "space-between",
-    paddingHorizontal: 10,
   },
   addButton: {
     width: 40,
-    height: 40,
+    height: 54,
     backgroundColor: COLOR_FRONT,
     margin: 6,
     alignItems: "center",

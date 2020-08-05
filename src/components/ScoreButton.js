@@ -53,7 +53,7 @@ export const ScoreButton = ({
 const styles = StyleSheet.create({
   button: {
     width: 40,
-    height: 40,
+    height: 54,
     backgroundColor: COLOR_FRONT,
     margin: 6,
     alignItems: "center",
